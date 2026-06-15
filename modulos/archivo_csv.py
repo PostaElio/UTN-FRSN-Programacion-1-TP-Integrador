@@ -21,8 +21,7 @@ def cargar_paises(ruta):
     paises = []
 
     if not os.path.exists(ruta):
-        print(f"[AVISO] No se encontró '{ruta}'. Se iniciará con lista vacía.")
-        return paises
+        raise FileNotFoundError(f"No se encontró '{ruta}'. Se iniciará con lista vacía.")
 
     try:
         with open(ruta, newline='', encoding='utf-8') as archivo:
@@ -31,20 +30,19 @@ def cargar_paises(ruta):
             # Verificar que el CSV tenga las columnas esperadas
             if lector.fieldnames is None or not all(c in lector.fieldnames for c in CAMPOS_CSV):
                 columnas_requeridas = ", ".join(CAMPOS_CSV)
-                print(f"[ERROR] El CSV no tiene las columnas requeridas ({columnas_requeridas}).")
-                return paises
+                raise ValueError(f"El CSV no tiene las columnas requeridas ({columnas_requeridas}).")
 
             for numero_linea, fila in enumerate(lector, start=2):
                 pais = _parsear_fila(fila, numero_linea)
                 if pais is not None:
                     paises.append(pais)
 
-    except PermissionError:
-        print(f"[ERROR] Sin permiso para leer '{ruta}'.")
-    except UnicodeDecodeError:
-        print("[ERROR] El archivo no está codificado en UTF-8.")
+    except PermissionError as e:
+        raise PermissionError(f"Sin permiso para leer '{ruta}'.") from e
+    except UnicodeDecodeError as e:
+        raise UnicodeError("El archivo no está codificado en UTF-8.") from e
     except Exception as e:
-        print(f"[ERROR] No se pudo leer el archivo: {e}")
+        raise RuntimeError(f"No se pudo leer el archivo: {e}") from e
 
     return paises
 
@@ -98,7 +96,7 @@ def guardar_paises(paises, ruta):
             escritor.writeheader()
             escritor.writerows(paises)
         print("[OK] Datos guardados correctamente.")
-    except PermissionError:
-        print(f"[ERROR] Sin permiso para escribir en '{ruta}'.")
+    except PermissionError as e:
+        raise PermissionError(f"Sin permiso para escribir en '{ruta}'.") from e
     except Exception as e:
-        print(f"[ERROR] No se pudo guardar el archivo: {e}")
+        raise RuntimeError(f"No se pudo guardar el archivo: {e}") from e

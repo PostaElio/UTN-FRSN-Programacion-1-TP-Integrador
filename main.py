@@ -33,7 +33,11 @@ def main():
 
     print("=" * 52)
     print("  Iniciando sistema... cargando datos.")
-    paises = cargar_paises(ruta_csv)
+    try:
+        paises = cargar_paises(ruta_csv)
+    except (FileNotFoundError, PermissionError, UnicodeError, RuntimeError, ValueError) as e:
+        print(f"[ERROR] {e}")
+        paises = []
     print(f"  {len(paises)} países cargados desde '{ARCHIVO_CSV}'.")
 
     while True:
@@ -61,7 +65,7 @@ def main():
                 break
             else:
                 print("[ERROR] Opción inválida. Ingrese un número del 1 al 8.")
-        except (LookupError, ValueError) as e:
+        except (LookupError, ValueError, PermissionError, RuntimeError) as e:
             print(f"[ERROR] {e}")
 
 
