@@ -9,7 +9,7 @@ from modulos.presentacion import mostrar_tabla
 
 def filtrar_por_continente(paises):
     """Muestra únicamente los países que pertenecen al continente indicado."""
-    print("\n-- Filtrar por Continente --------------------")
+    print("\n── Filtrar por Continente ────────────────────")
     while True:
         entrada = pedir_texto_no_vacio("Continente: ")
         try:
@@ -26,7 +26,7 @@ def filtrar_por_continente(paises):
 
 def filtrar_por_rango_poblacion(paises):
     """Muestra países cuya población se encuentre dentro del rango ingresado."""
-    print("\n-- Filtrar por Rango de Poblacion -----------")
+    print("\n── Filtrar por Rango de Población ───────────")
     minimo = pedir_entero_positivo("Población mínima: ")
     maximo = pedir_entero_positivo("Población máxima: ")
 
@@ -38,7 +38,7 @@ def filtrar_por_rango_poblacion(paises):
 
 def filtrar_por_rango_superficie(paises):
     """Muestra países cuya superficie en km² se encuentre dentro del rango ingresado."""
-    print("\n-- Filtrar por Rango de Superficie ----------")
+    print("\n── Filtrar por Rango de Superficie ──────────")
     minimo = pedir_entero_positivo("Superficie mínima (km²): ")
     maximo = pedir_entero_positivo("Superficie máxima (km²): ")
 
@@ -51,14 +51,14 @@ def filtrar_por_rango_superficie(paises):
 def menu_filtros(paises):
     """Submenú que agrupa las tres opciones de filtrado disponibles."""
     while True:
-        print("\n" + "=" * 52)
-        print("    FILTRAR PAISES")
-        print("=" * 52)
+        print("\n" + "═" * 52)
+        print("    FILTRAR PAÍSES")
+        print("═" * 52)
         print("  1. Por continente")
         print("  2. Por rango de población")
         print("  3. Por rango de superficie")
         print("  4. Volver")
-        print("=" * 52)
+        print("═" * 52)
 
         opcion = input("Seleccione filtro: ").strip()
         if opcion == "1":
