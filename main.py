@@ -9,8 +9,7 @@ import os
 
 # --- Importaciones de módulos propios ---
 from modulos.archivo_csv  import cargar_paises, guardar_paises
-from modulos.gestion      import agregar_pais, actualizar_pais
-from modulos.busqueda     import buscar_pais
+from modulos.gestion      import agregar_pais, actualizar_pais, buscar_pais
 from modulos.filtros      import menu_filtros
 from modulos.ordenamiento import ordenar_paises
 from modulos.estadisticas import mostrar_estadisticas

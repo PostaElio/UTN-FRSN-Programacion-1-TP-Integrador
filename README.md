@@ -439,8 +439,8 @@ Esto ocurre porque el módulo de ordenamiento solo acepta `asc` o `desc` como di
 
 ## Video de presentación
 
-- Link al video: Completar enlace
+- Link al video: https://drive.google.com/file/d/1TOBSjV9_GFTXt87dGR_db6Pq26wK0Z2M/view?usp=sharing
 
 ## Repositorio GitHub
 
-- Link al repositorio: (https://github.com/PostaElio/UTN-FRSN-Programacion-1-TP-Integrador)
+- Link al repositorio: https://github.com/PostaElio/UTN-FRSN-Programacion-1-TP-Integrador
