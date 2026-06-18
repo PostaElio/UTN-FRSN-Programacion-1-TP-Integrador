@@ -48,7 +48,6 @@ UTN-FRSN-Programacion-1-TP-Integrador/
 └── modulos/
 	├── __init__.py
 	├── archivo_csv.py
-	├── busqueda.py
 	├── estadisticas.py
 	├── filtros.py
 	├── gestion.py
@@ -62,10 +61,9 @@ UTN-FRSN-Programacion-1-TP-Integrador/
 - `main.py`: punto de entrada del programa y menú principal.
 - `data/paises.csv`: archivo de persistencia inicial con los datos de países.
 - `modulos/archivo_csv.py`: lectura y escritura del archivo CSV.
-- `modulos/busqueda.py`: búsqueda exacta y parcial de países.
 - `modulos/estadisticas.py`: cálculo y visualización de estadísticas.
 - `modulos/filtros.py`: filtros por continente, población y superficie.
-- `modulos/gestion.py`: alta y actualización de países.
+- `modulos/gestion.py`: alta, actualización y búsqueda de países.
 - `modulos/ordenamiento.py`: ordenamiento por distintos criterios.
 - `modulos/presentacion.py`: impresión de menús y tablas en consola.
 - `modulos/validaciones.py`: validaciones de entrada y normalización de datos.
